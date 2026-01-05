@@ -679,7 +679,6 @@
                 alt="Pareja conversando en Santiago" 
                 class="hero-image fade-in"
                 id="main-hero"
-                onerror="handleImageError(this, 'main-hero')"
             >
         </div>
         <p class="caption">Tomás conoció a Sofía en Las Condes horas después de usar la plataforma</p>
@@ -766,8 +765,7 @@
 
             <!-- Comment 1 -->
             <div class="comment fade-in clickable" onclick="trackClick('comment-1')">
-                <img src="/avatar1.jpg" alt="Usuario" class="avatar pink" id="comment-avatar-1"
-                     onerror="handleImageError(this, 'comment-avatar-1')">
+                <img src="/avatar1.jpg" alt="Usuario" class="avatar pink" id="comment-avatar-1">
                 <div class="comment-content">
                     <div class="comment-header">
                         <div class="comment-name">
@@ -785,8 +783,7 @@
 
             <!-- Comment 2 -->
             <div class="comment fade-in clickable" onclick="trackClick('comment-2')">
-                <img src="/avatar2.jpg" alt="Usuario" class="avatar blue" id="comment-avatar-2"
-                     onerror="handleImageError(this, 'comment-avatar-2')">
+                <img src="/avatar2.jpg" alt="Usuario" class="avatar blue" id="comment-avatar-2">
                 <div class="comment-content">
                     <div class="comment-header">
                         <div class="comment-name">
@@ -803,8 +800,7 @@
 
             <!-- Comment 3 -->
             <div class="comment fade-in clickable" onclick="trackClick('comment-3')">
-                <img src="/avatar3.jpg" alt="Usuario" class="avatar purple" id="comment-avatar-3"
-                     onerror="handleImageError(this, 'comment-avatar-3')">
+                <img src="/avatar3.jpg" alt="Usuario" class="avatar purple" id="comment-avatar-3">
                 <div class="comment-content">
                     <div class="comment-header">
                         <div class="comment-name">
@@ -841,8 +837,7 @@
     <!-- ====== FAKE NOTIFICATIONS ====== -->
     <!-- Notification 1 -->
     <div class="fake-notification" id="notification1" onclick="trackClick('notification-1')">
-        <img src="/notification1.jpg" alt="Usuario" class="fn-avatar avatar-1" 
-             onerror="handleImageError(this, 'notification1')">
+        <img src="/notification1.jpg" alt="Usuario" class="fn-avatar avatar-1">
         <div class="fn-content">
             <div class="fn-title">Nuevo Mensaje (2)</div>
             <p class="fn-text">Isidora: "Hola! Vi que estás cerca de Ñuñoa. ¿Te gusta el vino?"</p>
@@ -852,8 +847,7 @@
 
     <!-- Notification 2 -->
     <div class="fake-notification" id="notification2" onclick="trackClick('notification-2')">
-        <img src="/notification2.jpg" alt="Usuario" class="fn-avatar avatar-2"
-             onerror="handleImageError(this, 'notification2')">
+        <img src="/notification2.jpg" alt="Usuario" class="fn-avatar avatar-2">
         <div class="fn-content">
             <div class="fn-title">¡Nuevo Match!</div>
             <p class="fn-text">Valentina te ha dado like. Tiene 3 fotos nuevas. ¡Responde ahora!</p>
@@ -863,8 +857,7 @@
 
     <!-- Notification 3 -->
     <div class="fake-notification" id="notification3" onclick="trackClick('notification-3')">
-        <img src="/notification3.jpg" alt="Usuario" class="fn-avatar avatar-3"
-             onerror="handleImageError(this, 'notification3')">
+        <img src="/notification3.jpg" alt="Usuario" class="fn-avatar avatar-3">
         <div class="fn-content">
             <div class="fn-title">Mensaje Prioritario</div>
             <p class="fn-text">Antonella: "Estoy en Providencia hoy. ¿Te animas a un café rápido?"</p>
@@ -878,83 +871,51 @@
         const CONFIG = {
             AFFILIATE_LINK: "https://go.cm-trk6.com/aff_c?offer_id=13211&aff_id=93250&url_id=0&aff_sub5=popunder-clickunder&source=chile_dating_1&click_id={click_id}",
             
-            // 评论员数据
+            // 固定的评论员数据（无随机）
             COMMENTERS: [
                 {
                     id: 1,
                     name: "Carlos M.",
                     verified: true,
-                    locations: ["Viña del Mar", "Concón", "Reñaca", "Valparaíso"],
-                    texts: [
-                        "Descargué por curiosidad. En 48 horas conocí a 3 mujeres increíbles. La transparencia es lo que más valoro.",
-                        "Llevaba meses sin conexiones reales. Esta plataforma cambió todo. Mujeres directas y auténticas.",
-                        "Increíble la calidad de conversaciones. Por fin una app donde la gente es real desde el inicio."
-                    ]
+                    location: "Viña del Mar",
+                    text: "Descargué por curiosidad. En 48 horas conocí a 3 mujeres increíbles. La transparencia es lo que más valoro."
                 },
                 {
                     id: 2,
                     name: "Camila T.",
                     verified: false,
-                    locations: ["Providencia", "Ñuñoa", "Las Condes", "Vitacura"],
-                    texts: [
-                        "Como mujer, aprecio la honestidad de los hombres aquí. Sin juegos, sin perder el tiempo. 100% recomendado.",
-                        "Me encanta que todos sean claros desde el inicio. Nada de ghosting, nada de falsas expectativas.",
-                        "Por fin encuentro hombres que saben lo que quieren. La dinámica es completamente diferente."
-                    ]
+                    location: "Providencia",
+                    text: "Como mujer, aprecio la honestidad de los hombres aquí. Sin juegos, sin perder el tiempo. 100% recomendado."
                 },
                 {
                     id: 3,
                     name: "Sebastián G.",
                     verified: true,
-                    locations: ["Las Condes", "La Dehesa", "Lo Barnechea", "Huechuraba"],
-                    texts: [
-                        "Después de Tinder y Bumble, esto es otro nivel. Mujeres reales que saben lo que quieren. Revivió mi vida social.",
-                        "La verificación hace la diferencia. Sabes que estás hablando con personas reales y serias.",
-                        "En una semana tuve más conexiones reales que en 6 meses en otras apps. Totalmente diferente."
-                    ]
+                    location: "Las Condes",
+                    text: "Después de Tinder y Bumble, esto es otro nivel. Mujeres reales que saben lo que quieren. Revivió mi vida social."
                 }
             ],
             
-            // 通知数据
+            // 固定的通知数据（无随机）
             NOTIFICATIONS: [
                 {
                     id: 1,
                     name: "Isidora",
-                    messages: [
-                        "Hola! Vi que estás cerca de Ñuñoa. ¿Te gusta el vino?",
-                        "Estoy en Bellavista ahora mismo. ¿Te animas a algo espontáneo?",
-                        "Vi tus fotos en el Costanera. ¿Eras tú? ¡Qué coincidencia!"
-                    ]
+                    message: "Hola! Vi que estás cerca de Ñuñoa. ¿Te gusta el vino?",
+                    time: "Hace 2 minutos"
                 },
                 {
                     id: 2,
                     name: "Valentina",
-                    messages: [
-                        "¡Nuevo Match! Tiene 3 fotos nuevas. ¡Responde ahora!",
-                        "Te ha dado like. Tienes 24 horas para responder antes que expire.",
-                        "Match confirmado. Envíale un mensaje para comenzar a chatear."
-                    ]
+                    message: "¡Nuevo Match! Tiene 3 fotos nuevas. ¡Responde ahora!",
+                    time: "Hace 5 minutos"
                 },
                 {
                     id: 3,
                     name: "Antonella",
-                    messages: [
-                        "Estoy en Providencia hoy. ¿Te animas a un café rápido?",
-                        "Voy a estar en el Parque Arauco esta tarde. ¿Nos encontramos?",
-                        "¿Libre esta noche? Tengo planes improvisados cerca de tu zona."
-                    ]
+                    message: "Estoy en Providencia hoy. ¿Te animas a un café rápido?",
+                    time: "Hace 8 minutos"
                 }
-            ],
-            
-            // 头像图片数组 (这些是你需要上传到public文件夹的图片名)
-            AVATAR_IMAGES: [
-                "avatar1.jpg", "avatar2.jpg", "avatar3.jpg", 
-                "avatar4.jpg", "avatar5.jpg", "avatar6.jpg"
-            ],
-            
-            NOTIFICATION_IMAGES: [
-                "notification1.jpg", "notification2.jpg", "notification3.jpg",
-                "notification4.jpg", "notification5.jpg", "notification6.jpg"
             ]
         };
 
@@ -969,17 +930,14 @@
             // 初始化动态统计
             initDynamicStats();
             
-            // 随机化评论员
-            randomizeCommenters();
+            // 初始化评论员（固定数据）
+            initCommenters();
             
-            // 设置通知弹出
+            // 设置通知弹出（固定内容）
             setupNotifications();
             
             // 添加滚动动画
             initScrollAnimations();
-            
-            // 调试：检查所有图片加载状态
-            checkAllImages();
         });
 
         // ====== FUNCTIONS ======
@@ -1015,7 +973,7 @@
             setTimeout(typeWriter, 500);
         }
 
-        // 3. 动态统计
+        // 3. 动态统计（仅数字变化，无图片相关）
         function initDynamicStats() {
             // 在线人数实时变化
             let onlineCount = 21457;
@@ -1033,86 +991,51 @@
             }, 8000);
         }
 
-        // 4. 随机化评论员
-        function randomizeCommenters() {
+        // 4. 初始化评论员（固定数据，无随机图片）
+        function initCommenters() {
             CONFIG.COMMENTERS.forEach((commenter, index) => {
                 const commentIndex = index + 1;
                 
-                // 随机选择头像 (从public根目录读取)
-                const randomAvatar = CONFIG.AVATAR_IMAGES[Math.floor(Math.random() * CONFIG.AVATAR_IMAGES.length)];
-                const imgElement = document.getElementById(`comment-avatar-${commentIndex}`);
-                if (imgElement) {
-                    // 检查图片是否存在 (路径为/public/图片名)
-                    checkImageExists(`/${randomAvatar}`, function(exists) {
-                        if (exists) {
-                            imgElement.src = `/${randomAvatar}`;
-                        } else {
-                            // 如果图片不存在，使用fallback
-                            imgElement.src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${commenter.name.replace(/\s+/g, '')}`;
-                        }
-                    });
-                }
-                
-                // 随机选择地点
-                const randomLocation = commenter.locations[Math.floor(Math.random() * commenter.locations.length)];
+                // 固定地点
                 const locationElement = document.getElementById(`comment-location-${commentIndex}`);
                 if (locationElement) {
-                    locationElement.textContent = randomLocation;
+                    locationElement.textContent = commenter.location;
                 }
                 
-                // 随机选择评论内容
-                const randomText = commenter.texts[Math.floor(Math.random() * commenter.texts.length)];
+                // 固定评论内容
                 const textElement = document.getElementById(`comment-text-${commentIndex}`);
                 if (textElement) {
-                    textElement.textContent = randomText;
+                    textElement.textContent = commenter.text;
                 }
                 
-                // 随机时间 (1-12小时前)
-                const randomHours = Math.floor(Math.random() * 12) + 1;
+                // 固定时间
                 const timeElement = document.getElementById(`comment-time-${commentIndex}`);
                 if (timeElement) {
-                    timeElement.textContent = `${randomHours} hora${randomHours > 1 ? 's' : ''} atrás`;
+                    const times = ["2 horas atrás", "5 horas atrás", "8 horas atrás"];
+                    timeElement.textContent = times[index];
                 }
             });
         }
 
-        // 5. 设置通知
+        // 5. 设置通知（固定内容，无随机图片）
         function setupNotifications() {
-            // 配置每个通知
+            // 配置每个通知（固定内容）
             CONFIG.NOTIFICATIONS.forEach((notification, index) => {
                 const notifIndex = index + 1;
                 const notificationElement = document.getElementById(`notification${notifIndex}`);
                 
                 if (!notificationElement) return;
                 
-                // 随机选择头像 (从public根目录读取)
-                const randomAvatar = CONFIG.NOTIFICATION_IMAGES[Math.floor(Math.random() * CONFIG.NOTIFICATION_IMAGES.length)];
-                const avatarElement = notificationElement.querySelector('.fn-avatar');
-                if (avatarElement) {
-                    // 检查图片是否存在 (路径为/public/图片名)
-                    checkImageExists(`/${randomAvatar}`, function(exists) {
-                        if (exists) {
-                            avatarElement.src = `/${randomAvatar}`;
-                        } else {
-                            // 如果图片不存在，使用fallback
-                            avatarElement.src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${notification.name}`;
-                        }
-                    });
-                }
-                
-                // 随机选择消息
-                const randomMessage = notification.messages[Math.floor(Math.random() * notification.messages.length)];
+                // 固定消息
                 const messageElement = notificationElement.querySelector('.fn-text');
                 if (messageElement) {
-                    const name = notification.name;
-                    messageElement.innerHTML = `<strong>${name}:</strong> "${randomMessage}"`;
+                    messageElement.innerHTML = `<strong>${notification.name}:</strong> "${notification.message}"`;
                 }
                 
-                // 随机时间 (1-10分钟前)
-                const randomMinutes = Math.floor(Math.random() * 10) + 1;
+                // 固定时间
                 const timeElement = notificationElement.querySelector('.fn-time');
                 if (timeElement) {
-                    timeElement.textContent = `Hace ${randomMinutes} minuto${randomMinutes > 1 ? 's' : ''}`;
+                    timeElement.textContent = notification.time;
                 }
             });
             
@@ -1219,12 +1142,6 @@
                 finalLink += `?click_id=${clickId}`;
             }
             
-            // 添加source参数
-            if (!finalLink.includes('source=')) {
-                finalLink += finalLink.includes('?') ? '&' : '?';
-                finalLink += `source=${source}`;
-            }
-            
             // 在新标签页打开
             window.open(finalLink, '_blank');
             
@@ -1249,59 +1166,6 @@
                 e.preventDefault();
             }
         });
-
-        // 10. 页面可见性变化时更新数据
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) {
-                // 页面重新可见时，随机化一些数据
-                setTimeout(() => {
-                    randomizeCommenters();
-                }, 1000);
-            }
-        });
-
-        // 11. 检查图片是否存在
-        function checkImageExists(url, callback) {
-            const img = new Image();
-            img.onload = function() { callback(true); };
-            img.onerror = function() { callback(false); };
-            img.src = url;
-        }
-
-        // 12. 统一的图片错误处理
-        function handleImageError(imgElement, elementId) {
-            console.warn(`图片加载失败: ${imgElement.src}`);
-            
-            // 根据元素ID设置不同的fallback
-            const fallbacks = {
-                'main-hero': 'https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80',
-                'comment-avatar-1': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos',
-                'comment-avatar-2': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Camila',
-                'comment-avatar-3': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sebastian',
-                'notification1': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Isidora',
-                'notification2': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Valentina',
-                'notification3': 'https://api.dicebear.com/7.x/avataaars/svg?seed=Antonella'
-            };
-            
-            imgElement.src = fallbacks[elementId] || 'https://api.dicebear.com/7.x/avataaars/svg?seed=User';
-            
-            // 移除onerror以防循环
-            imgElement.onerror = null;
-        }
-
-        // 13. 调试：检查所有图片
-        function checkAllImages() {
-            console.log('=== 检查图片加载状态 ===');
-            const allImages = document.querySelectorAll('img');
-            allImages.forEach((img, index) => {
-                const imgSrc = img.src;
-                checkImageExists(imgSrc, function(exists) {
-                    console.log(`图片 ${index + 1}: ${imgSrc} - ${exists ? '✅ 加载成功' : '❌ 加载失败'}`);
-                });
-            });
-        }
     </script>
 </body>
-
 </html>
-
